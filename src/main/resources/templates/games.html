@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Games - Yearly Hall of Fame</title>
+</head>
+<body>
+
+<div th:replace="~{navbar :: navbar}"></div>
+
+<div class="container">
+    <h1>Games by Year</h1>
+    <div id="yearNavigation">
+        <h2>View Top 10 Games by Year</h2>
+        <div id="yearList"></div>
+    </div>
+
+    <h2>Add a New Game</h2>
+    <form id="gameForm">
+        <input type="text" id="title" placeholder="Title" required>
+        <input type="text" id="developer" placeholder="Developer" required>
+        <input type="text" id="publisher" placeholder="Publisher" required>
+        <input type="number" id="releaseYear" placeholder="Release Year" required>
+        <input type="text" id="releaseDate" placeholder="Release Date (dd/mm/yyyy)" required>
+        <input type="number" step="0.1" id="personalScore" placeholder="Personal Score (0-10)" required>
+        <textarea id="personalThoughts" placeholder="Personal Thoughts"></textarea><br>
+        <button type="button" onclick="addGame()">Add Game</button>
+    </form>
+</div>
+
+<script src="/scripts/games.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        getYears();
+    });
+</script>
+</body>
+</html>
