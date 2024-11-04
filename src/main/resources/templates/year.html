@@ -4,72 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/styles.css">
-  <title>Yearly Hall of Fame - <span id="yearTitle"></span></title>
+  <title>Yearly Hall of Fame - Year View</title>
 </head>
 <body>
+<div th:replace="~{navbar.html :: navbar}"></div>
 
-<div th:replace="~{navbar :: navbar}"></div>
 
 <div class="container">
-  <h1>Top 10 Entries of <span id="yearTitleHeader"></span></h1>
-  <div id="top10List"></div>
-  <button onclick="loadExtendedList()">View Full List</button>
+  <h1>Top 10 Entries of <span id="yearTitle"></span></h1>
+  <div id="topListContainer"></div>
+
+  <button class="button" onclick="loadExtendedList()">View Full List</button>
 
   <div id="extendedList" style="display: none;">
     <h2>Extended List</h2>
     <div id="fullList"></div>
   </div>
-
-  <div id="editFormContainer" style="display: none;">
-    <h2>Edit Entry</h2>
-    <form id="editForm">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title"><br>
-
-      <label for="director">Director:</label>
-      <input type="text" id="director" name="director"><br>
-
-      <label for="developer">Developer:</label>
-      <input type="text" id="developer" name="developer"><br>
-
-      <label for="producer">Producer:</label>
-      <input type="text" id="producer" name="producer"><br>
-
-      <label for="publisher">Publisher:</label>
-      <input type="text" id="publisher" name="publisher"><br>
-
-      <label for="releaseYear">Release Year:</label>
-      <input type="text" id="releaseYear" name="releaseYear"><br>
-
-      <label for="releaseDate">Release Date:</label>
-      <input type="date" id="releaseDate" name="releaseDate"><br>
-
-      <label for="personalScore">Personal Score:</label>
-      <input type="number" id="personalScore" name="personalScore" step="0.1"><br>
-
-      <label for="personalThoughts">Personal Thoughts:</label>
-      <textarea id="personalThoughts" name="personalThoughts"></textarea><br>
-
-      <button type="button" id="updateButton">Update</button>
-      <button type="button" onclick="closeEditForm()">Cancel</button>
-    </form>
-  </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const year = urlParams.get('year');
-    const type = urlParams.get('type');
-    document.getElementById('yearTitleHeader').textContent = year;
-
-    if (type === 'games') {
-      getTop10();
-    } else {
-      getTop10();
-    }
-  });
-</script>
-<script src="/scripts/games.js"></script>
+<script src="/scripts/year.js"></script>
 </body>
 </html>

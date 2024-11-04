@@ -1,16 +1,16 @@
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="sv">
-<link rel="stylesheet" href="/styles/styles.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <title>Yearly Hall of Fame - Navbar</title>
+</head>
 <body>
-
-<div th:fragment="navbar" id="navbar">
-  <div class="navbar">
-  <a href="/" class="nav-item">Home</a>
-  <a href="/games" class="nav-item">Games</a>
-  <a href="/movies" class="nav-item">Movies</a>
-  </div>
-</div>
-
+<nav class="navbar" th:fragment="navbar">
+  <a href="/">Home</a>
+  <a href="/games">Games</a>
+  <a href="/movies">Movies</a>
+</nav>
 </body>
 </html>
